@@ -10,4 +10,6 @@
 
 // Q5.3 - What are the HTML guideline documents that are to be followed? List the filename or URL of the guidelines. Describe the guidelines you are following (at least 1 paragraph) - please see attached word document
 
-// Q5.4 What are the software applications that are to be used to create the prototype UI (wireframe and prototype) - please see attached word document.
+// Q5.4 - What are the software applications that are to be used to create the prototype UI (wireframe and prototype) - please see attached word document.
+
+// Q5.5 - Build the wireframe of your UI using the tool you identified in question 5.4 - please see attached word document to see screenshot of wireframe.
