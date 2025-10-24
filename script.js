@@ -13,3 +13,5 @@
 // Q5.4 - What are the software applications that are to be used to create the prototype UI (wireframe and prototype) - please see attached word document.
 
 // Q5.5 - Build the wireframe of your UI using the tool you identified in question 5.4 - please see attached word document to see screenshot of wireframe.
+
+// Q5.6 - Review the wireframe with the client and get feedback. Revise and update the wireframe from feedback given - please see attached word document.
