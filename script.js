@@ -16,4 +16,6 @@
 
 // Q5.6 - Review the wireframe with the client and get feedback. Revise and update the wireframe from feedback given - please see attached word document.
 
-// Q5.7 Create the theme for your UI. Record the colours and font below - please see attached word document.
+// Q5.7 - Create the theme for your UI. Record the colours and font below - please see attached word document.
+
+// Q5.8 - Create prototype of the application using tools listed in Q5.4. Enhance the wireframe with the theme colours - please see attached word document to see screenshot of prototype.
