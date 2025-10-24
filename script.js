@@ -6,4 +6,4 @@
 
 // Q5.1 Record GitHub repository details for this part - please see attached word document.
 
-//
+// Q5.2 Gather the UI requirements from the description above and communicate with the client. Confirm the requirements with your client and obtain client sign off - please see attached word document.
