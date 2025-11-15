@@ -1,7 +1,7 @@
 // File: script.js
 // Description: File to answer questions from Part 5 of assessment JSAT 2
 // Author: Michael Deak
-// Date: 24/10/2025
+// Date: 15/11/2025
 // Version: 1.00
 
 // Q5.1 - Record GitHub repository details for this part - please see attached word document.
@@ -21,3 +21,5 @@
 // Q5.8 - Create prototype of the application using tools listed in Q5.4. Enhance the wireframe with the theme colours - please see attached word document to see screenshot of prototype.
 
 // Q5.9 - Review the prototype with the client and get feedback. Revise and update the wireframe from feedback given. Obtain signoff - please see attached word document.
+
+// Q5.10 - Describe the content flow / UI Actions / UI Events of each of the UI sections required - please see attached word document
