@@ -1,10 +1,10 @@
 // File: script.js
 // Description: File to answer questions from Part 5 of assessment JSAT 2
 // Author: Michael Deak
-// Date: 15/11/2025
+// Date: 16/11/2025
 // Version: 1.00
 
-// CLASSES & MOVIE DATA
+// Classes and Movie Data
 
 class Movie {
   constructor(id, title, year, rating) {
@@ -110,3 +110,29 @@ window.addEventListener("DOMContentLoaded", () => {
   displayList(movieList.movies);
   document.getElementById("AddMovie").style.display = "block";
 });
+
+// Display movie function
+
+function displayList(list) {
+  const box = document.getElementById("movieList");
+  box.replaceChildren();
+
+  list.forEach((m) => {
+    const p = document.createElement("p");
+    p.textContent = `ID: ${m.id} - ${m.title} (${m.year}) - `;
+    const starsContainer = document.createElement("span");
+
+    for (let i = 1; i <= 5; i++) {
+      const star = document.createElement("span");
+      star.textContent = i <= m.rating ? "⭐" : "☆";
+      star.addEventListener("click", () => {
+        m.rating = i;
+        displayList(list);
+      });
+      starsContainer.appendChild(star);
+    }
+
+    p.appendChild(starsContainer);
+    box.appendChild(p);
+  });
+}

@@ -11,19 +11,19 @@ body {
 h1 {
   text-align: center;
   margin-bottom: 30px;
-  color: #222222; /* Main title color */
+  color: #222222;
 }
 
 /* Card */
 .card {
-  background-color: #222222; /* dark card background */
+  background-color: #222222;
   padding: 20px;
   margin-bottom: 25px;
   border-radius: 8px;
 }
 
 .card h2 {
-  color: #ff8c00; /* Card heading */
+  color: #ff8c00;
   margin-bottom: 15px;
 }
 
