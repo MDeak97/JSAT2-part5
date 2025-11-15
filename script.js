@@ -136,3 +136,42 @@ function displayList(list) {
     box.appendChild(p);
   });
 }
+
+// Search Movie by Id Function
+
+function searchById() {
+  const id = document.getElementById("searchId").value;
+  const box = document.getElementById("searchResult");
+  box.replaceChildren();
+
+  const movie = movieList.findById(id);
+  const p = document.createElement("p");
+  p.textContent = movie
+    ? `ID: ${movie.id} - ${movie.title} (${movie.year}) - ${"⭐".repeat(
+        movie.rating
+      )}`
+    : "0 result";
+  box.appendChild(p);
+}
+
+// Search Movie by Title Function
+
+function searchByTitle() {
+  const text = document.getElementById("searchTitle").value;
+  const results = movieList.findByTitle(text);
+  const box = document.getElementById("searchResult");
+  box.replaceChildren();
+
+  if (results.length === 0) {
+    box.appendChild(document.createElement("p")).textContent = "0 result";
+    return;
+  }
+
+  results.forEach((m) => {
+    const p = document.createElement("p");
+    p.textContent = `ID: ${m.id} - ${m.title} (${m.year}) - ${"⭐".repeat(
+      m.rating
+    )}`;
+    box.appendChild(p);
+  });
+}
