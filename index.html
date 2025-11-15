@@ -10,13 +10,14 @@
     <h1>Movie UI Application</h1>
 
     <!-- 1. Movie List Section -->
-    <section class="card">
-      <h2>Movie List</h2>
-      <div id="movieList"></div>
-      <br />
-      <button onclick="refreshList()">Refresh</button>
-    </section>
-
+    <main>
+      <section class="card">
+        <h2>Movie List</h2>
+        <div id="movieList"></div>
+        <br />
+        <button onclick="refreshList()">Refresh</button>
+      </section>
+    </main>
     <!-- 2. Tabs Section -->
     <div class="tabs">
       <button class="tablink active" onclick="openTab(event, 'AddMovie')">
@@ -58,6 +59,26 @@
       </select>
       <br />
       <button onclick="addMovie()">Submit</button>
+    </section>
+
+    <!-- 4. Search Movie Section -->
+    <section id="SearchMovie" class="tabcontent card" style="display: none">
+      <h2>Search Movie</h2>
+      <input id="searchId" type="number" placeholder="Search by ID" />
+      <button onclick="searchById()">Search ID</button>
+      <br /><br />
+      <input id="searchTitle" type="text" placeholder="Search by Title" />
+      <button onclick="searchByTitle()">Search Title</button>
+      <br /><br />
+      <div id="searchResult"></div>
+    </section>
+
+    <!-- 5. Sort Movie Section -->
+    <section id="SortMovie" class="tabcontent card" style="display: none">
+      <h2>Sorting</h2>
+      <button onclick="sortAZ()">Sort A-Z</button>
+      <button onclick="sortZA()">Sort Z-A</button>
+      <button onclick="sortBest()">Best Movies</button>
     </section>
     <script src="script.js"></script>
   </body>
