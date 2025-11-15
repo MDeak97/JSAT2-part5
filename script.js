@@ -88,3 +88,25 @@ function addMovie() {
   alert("Movie Added!");
   displayList(movieList.movies);
 }
+
+// Tab Functionality
+
+function openTab(evt, tabName) {
+  const tabcontents = document.getElementsByClassName("tabcontent");
+  for (let i = 0; i < tabcontents.length; i++)
+    tabcontents[i].style.display = "none";
+
+  const tablinks = document.getElementsByClassName("tablink");
+  for (let i = 0; i < tablinks.length; i++)
+    tablinks[i].classList.remove("active");
+
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.classList.add("active");
+}
+
+// Default on page load
+
+window.addEventListener("DOMContentLoaded", () => {
+  displayList(movieList.movies);
+  document.getElementById("AddMovie").style.display = "block";
+});
