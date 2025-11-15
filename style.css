@@ -14,9 +14,102 @@ h1 {
   color: #222222; /* Main title color */
 }
 
+/* Card */
 .card {
   background-color: #222222; /* dark card background */
   padding: 20px;
   margin-bottom: 25px;
   border-radius: 8px;
+}
+
+.card h2 {
+  color: #ff8c00; /* Card heading */
+  margin-bottom: 15px;
+}
+
+input,
+select {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ff8c00;
+  border-radius: 5px;
+  background-color: #333333;
+  color: #ffffff;
+}
+
+/* Button */
+button {
+  background-color: #ff8c00;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #222222;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #cc7000;
+}
+
+#movieList,
+#searchResult {
+  padding: 10px;
+  border: 1px solid #ff8c00;
+  background-color: #333333;
+  min-height: 50px;
+  border-radius: 5px;
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+/* Stars */
+#movieList span span {
+  cursor: pointer;
+  font-size: 1.2em;
+  margin-right: 2px;
+  color: #ff8c00;
+}
+#movieList span span:hover {
+  color: #ffffff;
+}
+
+/* Remove number input spinner for Year */
+.no-spinner::-webkit-inner-spin-button,
+.no-spinner::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.no-spinner {
+  -moz-appearance: textfield;
+}
+
+/* Tabs */
+.tabs {
+  margin-bottom: 15px;
+}
+
+.tablink {
+  background-color: #ff8c00;
+  color: #222222;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  margin-right: 2px;
+  font-weight: bold;
+}
+
+.tablink:hover {
+  background-color: #cc7000;
+}
+
+.tablink.active {
+  background-color: #cc7000;
+  color: #ffffff;
+}
+
+.tabcontent {
+  display: none;
 }
