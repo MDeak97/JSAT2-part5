@@ -16,5 +16,48 @@
       <br />
       <button onclick="refreshList()">Refresh</button>
     </section>
+
+    <!-- 2. Tabs Section -->
+    <div class="tabs">
+      <button class="tablink active" onclick="openTab(event, 'AddMovie')">
+        Add Movie
+      </button>
+      <button class="tablink" onclick="openTab(event, 'SearchMovie')">
+        Search Movie
+      </button>
+      <button class="tablink" onclick="openTab(event, 'SortMovie')">
+        Sort Movie
+      </button>
+    </div>
+
+    <!-- 3. Add Movie Section -->
+    <section id="AddMovie" class="tabcontent card">
+      <h2>Add a Movie</h2>
+      <input
+        id="movieId"
+        type="number"
+        placeholder="Movie ID (positive number)"
+      />
+      <br />
+      <input id="movieTitle" type="text" placeholder="Title" />
+      <br />
+      <input
+        id="movieYear"
+        type="number"
+        placeholder="Year"
+        class="no-spinner"
+      />
+      <br />
+      <select id="movieRating">
+        <option value="">Select Rating</option>
+        <option value="1">⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="5">⭐⭐⭐⭐⭐</option>
+      </select>
+      <br />
+      <button onclick="addMovie()">Submit</button>
+    </section>
   </body>
 </html>

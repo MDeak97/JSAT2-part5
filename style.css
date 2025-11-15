@@ -1,2 +1,22 @@
 /* Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  background-color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  color: #ffffff;
+  margin: 40px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #222222; /* Main title color */
+}
+
+.card {
+  background-color: #222222; /* dark card background */
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+}
