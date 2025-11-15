@@ -22,4 +22,4 @@
 
 // Q5.9 - Review the prototype with the client and get feedback. Revise and update the wireframe from feedback given. Obtain signoff - please see attached word document.
 
-// Q5.10 - Describe the content flow / UI Actions / UI Events of each of the UI sections required - please see attached word document
+// Q5.10 - Describe the content flow / UI Actions / UI Events of each of the UI sections required - please see attached word document.
