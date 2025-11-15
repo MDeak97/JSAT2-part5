@@ -175,3 +175,27 @@ function searchByTitle() {
     box.appendChild(p);
   });
 }
+
+// Sort A-Z
+function sortAZ() {
+  movieList.sortAZ();
+  displayList(movieList.movies);
+}
+
+// Sort Z-A
+function sortZA() {
+  movieList.sortZA();
+  displayList(movieList.movies);
+}
+
+// Sort Best Movies
+function sortBest() {
+  movieList.sortBest();
+  displayList(movieList.movies);
+}
+
+// Add Refresh Functionality
+function refreshList() {
+  movieList.restoreOriginal();
+  displayList(movieList.movies);
+}
