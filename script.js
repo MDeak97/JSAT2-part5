@@ -22,13 +22,8 @@
 
 // Q5.9 - Review the prototype with the client and get feedback. Revise and update the wireframe from feedback given. Obtain signoff - please see attached word document.
 
-<<<<<<< Updated upstream
 // Q5.10 - Describe the content flow / UI Actions / UI Events of each of the UI sections required - please see attached word document.
-=======
+
 // Q5.10 - Describe the content flow / UI Actions / UI Events of each of the UI sections required - please see attached word document
 
 // Q5.11 Determine the languages used to build the UI. List all the languages used and describe what they are used for. (at least 1 paragraph for each description) - please see attached word document
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
