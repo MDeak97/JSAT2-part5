@@ -62,3 +62,29 @@ class MovieList {
 }
 
 const movieList = new MovieList();
+
+// Add movie function
+
+function addMovie() {
+  const id = Number(document.getElementById("movieId").value);
+  const title = document.getElementById("movieTitle").value.trim();
+  const year = document.getElementById("movieYear").value;
+  const rating = Number(document.getElementById("movieRating").value);
+
+  if (!id || id <= 0) {
+    alert("ID must be a positive number.");
+    return;
+  }
+  if (movieList.movies.some((m) => m.id === id)) {
+    alert("That Movie ID already exists.");
+    return;
+  }
+  if (!title || !year || !rating) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  movieList.add(new Movie(id, title, year, rating));
+  alert("Movie Added!");
+  displayList(movieList.movies);
+}
