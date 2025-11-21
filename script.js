@@ -1,7 +1,7 @@
 // File: script.js
 // Description: File to answer questions from Part 5 of assessment JSAT 2
 // Author: Michael Deak
-// Date: 16/11/2025
+// Date: 21/11/2025
 // Version: 1.00
 
 // Classes and Movie Data
