@@ -22,4 +22,6 @@
 
 // Q5.11 Determine the languages used to build the UI. List all the languages used and describe what they are used for. (at least 1 paragraph for each description) - please see attached word document
 
-Q5.12 Design and build the UI with the languages listed in Q5.11 - please see attached word document
+// Q5.12 Design and build the UI with the languages listed in Q5.11 - please see attached word document
+
+// Q5.13 Develop the test cases the verify the UI Functionality - please see attached excel document
