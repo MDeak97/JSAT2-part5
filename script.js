@@ -1,8 +1,8 @@
 // File: script.js
 // Description: File to answer questions from Part 5 of assessment JSAT 2
 // Author: Michael Deak
-// Date: 21/11/2025
-// Version: 1.00
+// Date: 28/11/2025
+// Version: 1.1.0
 
 // Classes and Movie Data
 
@@ -66,27 +66,74 @@ const movieList = new MovieList();
 // Add movie function
 
 function addMovie() {
-  const id = Number(document.getElementById("movieId").value);
-  const title = document.getElementById("movieTitle").value.trim();
-  const year = document.getElementById("movieYear").value;
-  const rating = Number(document.getElementById("movieRating").value);
+  const idInput = document.getElementById("movieId");
+  const titleInput = document.getElementById("movieTitle");
+  const yearInput = document.getElementById("movieYear");
+  const ratingInput = document.getElementById("movieRating");
+
+  const id = parseInt(idInput.value);
+  const title = titleInput.value.trim();
+  const year = parseInt(yearInput.value);
+  const rating = parseInt(ratingInput.value);
 
   if (!id || id <= 0) {
-    alert("ID must be a positive number.");
+    alert("Movie ID must be positive.");
+    return;
+  }
+  if (!title) {
+    alert("Title cannot be empty.");
+    return;
+  }
+  if (!year || year < 0) {
+    alert("Invalid year.");
     return;
   }
   if (movieList.movies.some((m) => m.id === id)) {
-    alert("That Movie ID already exists.");
-    return;
-  }
-  if (!title || !year || !rating) {
-    alert("Please fill in all fields.");
+    alert("ID already exists.");
     return;
   }
 
   movieList.add(new Movie(id, title, year, rating));
-  alert("Movie Added!");
-  displayList(movieList.movies);
+  displayList();
+
+  // Clear inputs
+  idInput.value = "";
+  titleInput.value = "";
+  yearInput.value = "";
+  ratingInput.value = "";
+
+  alert("Movie added successfully!");
+}
+
+// Update Movie Raiting
+
+function updateMovieRating(movieId, newRating) {
+  const movie = movieList.findById(movieId);
+  if (movie) {
+    movie.rating = newRating;
+    displayList();
+  }
+}
+
+// Star Builder
+
+function buildStarDisplay(rating, movieId) {
+  const container = document.createElement("span");
+
+  for (let i = 1; i <= 5; i++) {
+    const star = document.createElement("span");
+    star.textContent = i <= rating ? "⭐" : "☆";
+    star.classList.add("star");
+
+    // Make stars clickable
+    star.addEventListener("click", () => {
+      updateMovieRating(movieId, i);
+    });
+
+    container.appendChild(star);
+  }
+
+  return container;
 }
 
 // Tab Functionality
@@ -113,89 +160,105 @@ window.addEventListener("DOMContentLoaded", () => {
 
 // Display movie function
 
-function displayList(list) {
-  const box = document.getElementById("movieList");
-  box.replaceChildren();
+function displayList() {
+  const listBox = document.getElementById("movieList");
+  while (listBox.firstChild) listBox.removeChild(listBox.firstChild);
 
-  list.forEach((m) => {
+  movieList.movies.forEach((movie) => {
     const p = document.createElement("p");
-    p.textContent = `ID: ${m.id} - ${m.title} (${m.year}) - `;
-    const starsContainer = document.createElement("span");
-
-    for (let i = 1; i <= 5; i++) {
-      const star = document.createElement("span");
-      star.textContent = i <= m.rating ? "⭐" : "☆";
-      star.addEventListener("click", () => {
-        m.rating = i;
-        displayList(list);
-      });
-      starsContainer.appendChild(star);
-    }
-
-    p.appendChild(starsContainer);
-    box.appendChild(p);
+    const text = document.createElement("span");
+    text.textContent = `ID: ${movie.id} - ${movie.title} (${movie.year}) - `;
+    const stars = buildStarDisplay(movie.rating, movie.id); // clickable
+    p.appendChild(text);
+    p.appendChild(stars);
+    listBox.appendChild(p);
   });
 }
 
 // Search Movie by Id Function
 
 function searchById() {
-  const id = document.getElementById("searchId").value;
-  const box = document.getElementById("searchResult");
-  box.replaceChildren();
+  const idInput = document.getElementById("searchId");
+  const searchId = parseInt(idInput.value);
+  if (!searchId || searchId <= 0) {
+    alert("Enter valid ID.");
+    return;
+  }
 
-  const movie = movieList.findById(id);
-  const p = document.createElement("p");
-  p.textContent = movie
-    ? `ID: ${movie.id} - ${movie.title} (${movie.year}) - ${"⭐".repeat(
-        movie.rating
-      )}`
-    : "0 result";
-  box.appendChild(p);
+  const result = movieList.findById(searchId);
+  const listBox = document.getElementById("movieList");
+  while (listBox.firstChild) listBox.removeChild(listBox.firstChild);
+
+  if (result) {
+    const p = document.createElement("p");
+    const text = document.createElement("span");
+    text.textContent = `ID: ${result.id} - ${result.title} (${result.year}) - `;
+    const stars = buildStarDisplay(result.rating, result.id); // clickable
+    p.appendChild(text);
+    p.appendChild(stars);
+    listBox.appendChild(p);
+  } else {
+    const p = document.createElement("p");
+    p.textContent = "No movie found with that ID.";
+    listBox.appendChild(p);
+  }
+
+  idInput.value = "";
 }
 
 // Search Movie by Title Function
 
 function searchByTitle() {
-  const text = document.getElementById("searchTitle").value;
-  const results = movieList.findByTitle(text);
-  const box = document.getElementById("searchResult");
-  box.replaceChildren();
-
-  if (results.length === 0) {
-    box.appendChild(document.createElement("p")).textContent = "0 result";
+  const titleInput = document.getElementById("searchTitle");
+  const value = titleInput.value.toLowerCase().trim();
+  if (value === "") {
+    alert("Enter a title to search.");
     return;
   }
 
-  results.forEach((m) => {
+  const results = movieList.findByTitle(value);
+  const listBox = document.getElementById("movieList");
+  while (listBox.firstChild) listBox.removeChild(listBox.firstChild);
+
+  if (results.length === 0) {
     const p = document.createElement("p");
-    p.textContent = `ID: ${m.id} - ${m.title} (${m.year}) - ${"⭐".repeat(
-      m.rating
-    )}`;
-    box.appendChild(p);
-  });
+    p.textContent = "No movies found.";
+    listBox.appendChild(p);
+  } else {
+    results.forEach((movie) => {
+      const p = document.createElement("p");
+      const text = document.createElement("span");
+      text.textContent = `ID: ${movie.id} - ${movie.title} (${movie.year}) - `;
+      const stars = buildStarDisplay(movie.rating, movie.id); // clickable
+      p.appendChild(text);
+      p.appendChild(stars);
+      listBox.appendChild(p);
+    });
+  }
+
+  titleInput.value = "";
 }
 
 // Sort A-Z
 function sortAZ() {
   movieList.sortAZ();
-  displayList(movieList.movies);
+  displayList();
 }
 
 // Sort Z-A
 function sortZA() {
   movieList.sortZA();
-  displayList(movieList.movies);
+  displayList();
 }
 
 // Sort Best Movies
 function sortBest() {
   movieList.sortBest();
-  displayList(movieList.movies);
+  displayList();
 }
 
 // Add Refresh Functionality
 function refreshList() {
   movieList.restoreOriginal();
-  displayList(movieList.movies);
+  displayList();
 }
